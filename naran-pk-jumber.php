@@ -5,7 +5,7 @@
  * Author:      changwoo
  * Author URI:  https://blog.changwoo.pe.kr
  * Plugin URI:  https://github.com/chwnam/naran-pk-jumper
- * Version:     1.0.0
+ * Version:     1.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,6 +16,9 @@ if ( ! is_admin() ) {
 	return;
 }
 
+const NPJ_VERSION = '1.0.1';
+
+
 add_action( 'admin_enqueue_scripts', 'npj_enqueue_scripts', 100 );
 function npj_enqueue_scripts( string $hook ) {
 	if ( 'tools_page_npj' === $hook ) {
@@ -23,14 +26,14 @@ function npj_enqueue_scripts( string $hook ) {
 			'npj-script',
 			plugins_url( 'script.js', __FILE__ ),
 			[ 'jquery' ],
-			'1.0.0'
+			NPJ_VERSION
 		);
 
 		wp_enqueue_style(
 			'npj-style',
 			plugins_url( 'style.css', __FILE__ ),
 			[],
-			'1.0.0'
+			NPJ_VERSION
 		);
 	}
 }
@@ -121,7 +124,7 @@ function npj_output_admin_menu() {
             <p>
                 <input id="show-only-builtin"
                        type="checkbox">
-                <label for="show-only-builtin">Show only WordPress built-on tables.</label>
+                <label for="show-only-builtin">Show only WordPress built-in tables.</label>
             </p>
             <input type="hidden" name="action" value="npj_jump">
 			<?php
