@@ -179,7 +179,11 @@ function npj_get_next_ai( string $table ): int {
 function npj_set_next_ai( string $table, int $jump ) {
 	global $wpdb;
 
-	$wpdb->query( $wpdb->prepare( "ALTER TABLE `{$table}` AUTO_INCREMENT = %d", $jump ) );
+	$current_jump = npj_get_next_ai( $table );
+
+	if ( $jump > 0 && $jump > $current_jump ) {
+		$wpdb->query( $wpdb->prepare( "ALTER TABLE `{$table}` AUTO_INCREMENT = %d", $jump ) );
+	}
 }
 
 
