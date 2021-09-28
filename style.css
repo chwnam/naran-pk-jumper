@@ -1,0 +1,44 @@
+.npj-table {
+    max-width: 750px;
+}
+
+.npj-table > tbody > tr.hidden {
+    display: none;
+}
+
+.npj-wp-builtin-table {
+    font-weight: 600;
+}
+
+.npj-wp-builtin-table::after {
+    content: "[built-in]";
+    font-size: 12px;
+    font-style: italic;
+    color: #0a4b78;
+    margin-left: 14px;
+}
+
+.col-checkbox {
+    width: 20px;
+}
+
+.col-table_name {
+    width: 300px;
+}
+
+.col-pk {
+    width: 120px;
+}
+
+.col-ai_next {
+    width: 80px;
+    text-align: right;
+}
+
+.col-ai_next > span {
+    padding-right: 25px;
+}
+
+.col-ai_jump {
+    width: 120px;
+}
